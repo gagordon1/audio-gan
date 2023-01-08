@@ -23,7 +23,7 @@ output_path : output path for the downloaded file
 
 downloads a url and saves to a path
 """
-def download(url, output_path, verbose = False):
+def download(url : str, output_path : str, verbose = False):
     ydl_opts = {
     'format': 'bestaudio/best',
     'outtmpl': '{}/%(title)s.%(ext)s'.format(output_path),
@@ -54,7 +54,7 @@ Given a query, returns a list of video objects of the form :
 
   }
 """
-def youtube_search(query):
+def youtube_search(query : str):
     videos = VideosSearch(query, limit=5)
     return list(map(lambda x : {
         "title" : x["title"],
