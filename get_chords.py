@@ -8,4 +8,5 @@ def extract_chords(path_to_mp3_file : str):
     return chords
 
 if __name__ == "__main__":
-    chords = extract_chords('test_audio.mp3')
+    # chords = extract_chords('test_audio.mp3')\
+    pass
