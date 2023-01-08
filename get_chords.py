@@ -14,7 +14,7 @@ def extract_chords(path_to_mp3_file : str) -> List[Tuple[str, float]]:
     chordino = Chordino(roll_on=1)  
     # Run extraction
     chords = chordino.extract(path_to_mp3_file)
-    return map(lambda x : (x.chord, x.timestamp), chords)
+    return [obj for obj in map(lambda x : (x.chord, x.timestamp), chords)]
 
 if __name__ == "__main__":
     # chords = extract_chords('test_audio.mp3')\
