@@ -26,7 +26,7 @@ downloads a url and saves to a path
 def download(url : str, output_path : str, verbose = False):
     ydl_opts = {
     'format': 'bestaudio/best',
-    'outtmpl': '{}/%(title)s.%(ext)s'.format(output_path),
+    'outtmpl': output_path,
     # 'max_filesize' : "50m",
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
