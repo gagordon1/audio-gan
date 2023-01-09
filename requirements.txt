@@ -2,5 +2,6 @@ chord_extractor==0.1.2
 librosa==0.8.0
 midiutil==1.2.1
 mingus==0.6.1
+spotipy==2.22.0
 youtube_search_python==1.6.6
 yt_dlp==2022.6.22.1
