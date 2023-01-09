@@ -3,6 +3,7 @@ from youtube_dl import download, youtube_search
 from midiutil import MIDIFile
 from mingus.core import chords
 import librosa
+from typing import Tuple, List
 
 YOUTUBE_WATCH_STRING = "https://www.youtube.com/watch?v="
 """
@@ -19,7 +20,7 @@ def download_youtube_link(link : str, outpath : str) -> str:
   download(link, outpath)
   return outpath
 
-from typing import Tuple, List
+
 def get_beats_from_mp3(file : str) -> Tuple[int, List[float]]:
   arr, sr = librosa.load(file)
   tempo, beat_track = librosa.beat.beat_track(arr,sr=sr)
@@ -99,7 +100,7 @@ def create_midi_from_chordchange_array_and_tempo(tempo : float, chords_array : L
         MyMIDI.writeFile(output_file)
 
 
-def get_chord_array_and_tempo(youtube_query : str, download_path : str) -> Tuple[List[List[str, float]], float]:
+def get_chord_array_and_tempo(youtube_query : str, download_path : str):
     """
     Returns a list of chords along with the timestamps they start at and the tempo of the song
     for the first result of the supplied youtube query
@@ -109,5 +110,5 @@ def get_chord_array_and_tempo(youtube_query : str, download_path : str) -> Tuple
     chords_array = extract_chords(downloaded)
     arr = list(chords_array)
     tempo, _  = get_beats_from_mp3(downloaded)
-    return [arr, tempo]
+    return (arr, tempo)
     # create_midi_from_chordchange_array_and_tempo(tempo, arr)
